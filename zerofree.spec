@@ -1,13 +1,13 @@
 Name:           zerofree
 Version:        1.1.1
-Release:        3
+Release:        4
 Summary:        Utility to force unused ext2/3/4 inodes and blocks to zero
 License:        GPLv2
 URL:            https://frippery.org/uml/
 Source0:        https://frippery.org/uml/%{name}-%{version}.tgz
 Source1:        https://frippery.org/uml/sparsify.c
 Source2:        zerofree.8
-BuildRequires:  e2fsprogs-devel
+BuildRequires:  e2fsprogs-devel gcc
 
 %description
 This module is a utility to set unused filesystem inodes and blocks of an ext2/3/4 filesystem to zero,
@@ -41,5 +41,8 @@ install -D -p -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man8/zerofree.8
 %{_mandir}/man*/*
 
 %changelog
+* Mon May 31 2021 huanghaitao <huanghaitao8@huawei.com> - 1.1.1-4
+- Completing build dependencies to fix gcc compiler missing error
+
 * Thu Dec 12 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.1.1-3
 - Package init
